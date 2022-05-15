@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        div{
+            padding-top: 10px;
+            margin-left: 600px;
+        }
+
+
+    </style>
+</head>
+<body>
+    {% include 'header.html'%}
+    <div>
+        {% for message in messages%}
+        <h1>{{message}}</h1>
+        {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <div>
+        <p>Total Books : {{total_books}}</p><br>
+        <p> Total Users : {{all_users}}</p>
+
+    </div>
+    {% endif %}
+</body>
+</html>

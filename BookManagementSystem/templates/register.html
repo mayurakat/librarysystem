@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>
+    .main{
+        margin-left: 600px;
+        margin-top: 200px;
+        padding: 10px;
+    }
+    .main div{
+        padding-top: 50px;
+    }
+</style>
+
+</head>
+<body>
+    <div>{% include 'header.html'%}</div>
+    <div class="main">
+        <h2>Add User!</h2>
+        <form  action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <input  required type="text" name="full_name" placeholder="full Name"><br><br>
+            <input required  type="email" name="email" placeholder="E-mail"><br><br>
+            <input required type="number" name="mobile" placeholder="mobile"><br><br>
+            <input  required type="text" name="address" placeholder="Address"><br><br>
+            <input required  type="password" name="password" placeholder="password"><br><br>
+            <input  type="submit">
+        </form><br>
+
+
+        <div>
+            {% for message in messages%}
+            <h1>{{message}}</h1>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

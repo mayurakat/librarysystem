@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-top: 200px;
+  margin-left: 30px;
+}
+td, th {
+  border: 1px solid #dddddd;
+ text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+</head>
+<body>
+    <div>{% include 'header.html'%}</div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Discription</th>
+            <th>Author</th>
+            <th>Ratings</th>
+            <th>Options</th>
+        </tr>
+        {% for book in books%}
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.discription}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.rating}}</td>
+            <td><a href="{% url 'delbook' book.id%}">delete</a></td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+</body>
+</html>

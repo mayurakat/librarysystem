@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .file{
+            margin-left: 600px;
+            margin-top: 200px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>{% include 'header.html'%}</div>
+    
+    <div class="file">
+        <form action="{% url 'upload'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="File">
+            <input type="submit" name="upload">
+            <p>select your excel file.</p>
+        </form>
+    </div>
+</body>
+</html>
